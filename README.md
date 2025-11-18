@@ -19,5 +19,11 @@ This learning project included some planned errors to gain valuable experience i
   - **Solution:** Write a command to copy files from current working directory into the current working directory inside the container.
 
 - **Summary:** Lack of port forwarding.
+
   - **Elaboration of problem:** Since the browser cannot directly access the Docker container's port, the local port needs to be mapped to a port on the container to gain access.
   - **Solution:** Learn command for port mapping at runtime from Docker CLI. Understand that the number of the local port does not need to be identical to that of the Docker container.
+
+- **Summary:** Not good practice to copy files and dependencies directly into container's root directory.
+
+  - **Elaboration of problem:** Copying files into container's root directory might cause existing files to be overwritten accidentally within the container if there are conflicts between new files or folders and the default folder system.
+  - **Solution:** Instead, copy new files into a nested directory. Use the instruction WORKDIR which is designed to solve this problem. Any following commands will be executed relative to that folder (or path) in the container.
