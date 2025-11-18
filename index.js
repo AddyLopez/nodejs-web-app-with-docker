@@ -5,7 +5,7 @@ app.get("/", (req, res) => {
   res.send("Hi there!");
 });
 
-// Requires port mapping from Docker CLI with this command: docker run -p <port#>:<port#> <buildimage>
+// Requires port mapping at runtime from Docker CLI with this command: docker run -p <port#>:<port#> <buildimage>
 app.listen(8080, () => {
   console.log("Listening on Port 8080...");
 });
